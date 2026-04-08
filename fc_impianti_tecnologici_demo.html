@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--brand:#1a3a5c;
+--brand-light:#2a5a8c;
+--accent:#e8610a;
+--accent-light:#f07a2a;
+--text:#1a1a1a;
+--text-muted:#555;
+--bg:#f5f4f0;
+--white:#fff;
+--border:#ddd;
+}
+body{font-family:'Barlow',sans-serif;color:var(--text);background:var(--bg);font-size:15px}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{background:var(--brand);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.logo{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;letter-spacing:0.5px;line-height:1.1}
+.logo span{color:var(--accent);display:block;font-size:11px;font-weight:400;letter-spacing:2px;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);font-size:14px;font-weight:500;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:var(--accent);color:#fff;padding:8px 18px;border-radius:4px;font-size:14px;font-weight:500;transition:background 0.2s}
+.nav-cta:hover{background:var(--accent-light)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg, var(--brand) 0%, #0d2540 100%);color:#fff;padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-100px;top:-100px;width:500px;height:500px;background:rgba(232,97,10,0.08);border-radius:50%}
+.hero::after{content:'';position:absolute;right:100px;bottom:-50px;width:300px;height:300px;background:rgba(255,255,255,0.03);border-radius:50%}
+.hero-inner{max-width:720px;margin:0 auto;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(232,97,10,0.2);border:1px solid rgba(232,97,10,0.4);color:var(--accent-light);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:3px;margin-bottom:1.5rem}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:700;line-height:1.05;margin-bottom:1rem;letter-spacing:-0.5px}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero p{font-size:17px;color:rgba(255,255,255,0.75);line-height:1.7;max-width:560px;margin-bottom:2.5rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:13px 28px;border-radius:4px;font-size:15px;font-weight:500;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--accent-light)}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.4);color:#fff;padding:13px 28px;border-radius:4px;font-size:15px;font-weight:500;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,0.05)}
+.hero-stats{display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1)}
+.stat-num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:700;color:#fff}
+.stat-label{font-size:13px;color:rgba(255,255,255,0.55);margin-top:2px}
+
+/* STRIP */
+.strip{background:var(--accent);color:#fff;padding:14px 2rem;text-align:center;font-size:14px;font-weight:500}
+.strip strong{font-weight:700}
+
+/* SERVICES */
+.section{padding:4rem 2rem;max-width:900px;margin:0 auto}
+.section-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:0.5rem}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:700;color:var(--brand);margin-bottom:0.5rem;line-height:1.1}
+.section-sub{font-size:15px;color:var(--text-muted);margin-bottom:2.5rem;line-height:1.6}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5px;background:var(--border);border:1.5px solid var(--border)}
+.service-card{background:var(--white);padding:1.75rem;transition:all 0.2s;cursor:default}
+.service-card:hover{background:#fafaf8}
+.service-icon{width:44px;height:44px;background:rgba(26,58,92,0.08);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.service-icon svg{width:22px;height:22px;stroke:var(--brand);fill:none;stroke-width:1.8}
+.service-card h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;color:var(--brand);margin-bottom:0.5rem}
+.service-card p{font-size:13.5px;color:var(--text-muted);line-height:1.6}
+.service-more{font-size:12.5px;color:var(--accent);font-weight:600;margin-top:0.75rem;display:inline-block}
+
+/* WHY */
+.why{background:var(--brand);color:#fff;padding:4rem 2rem}
+.why-inner{max-width:900px;margin:0 auto}
+.why .section-title{color:#fff}
+.why .section-label{color:var(--accent-light)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
+.why-item{border-left:3px solid var(--accent);padding-left:1.25rem}
+.why-item h4{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.why-item p{font-size:13.5px;color:rgba(255,255,255,0.65);line-height:1.6}
+
+/* CONTACT FORM */
+.contact-section{background:var(--white);padding:4rem 2rem}
+.contact-inner{max-width:720px;margin:0 auto}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:5px}
+.form-group.full{grid-column:1/-1}
+label{font-size:12px;font-weight:600;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase}
+input,textarea,select{border:1.5px solid var(--border);border-radius:4px;padding:10px 12px;font-size:14px;font-family:'Barlow',sans-serif;background:var(--bg);color:var(--text);transition:border-color 0.2s;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--brand)}
+textarea{resize:vertical;min-height:100px}
+.form-submit{background:var(--accent);color:#fff;border:none;padding:13px 32px;font-size:15px;font-weight:500;border-radius:4px;cursor:pointer;font-family:'Barlow',sans-serif;transition:background 0.2s;margin-top:0.5rem}
+.form-submit:hover{background:var(--accent-light)}
+.contact-info{display:flex;gap:2rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap}
+.contact-item{display:flex;gap:10px;align-items:flex-start}
+.contact-item svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;flex-shrink:0;margin-top:2px}
+.contact-item div{font-size:13.5px;color:var(--text-muted);line-height:1.5}
+.contact-item strong{display:block;font-size:13px;color:var(--text);margin-bottom:2px}
+
+/* FOOTER */
+footer{background:#0d1f33;color:rgba(255,255,255,0.5);padding:2rem;text-align:center;font-size:13px}
+footer strong{color:rgba(255,255,255,0.8)}
+
+/* DEMO BADGE */
+.demo-bar{background:#1a1a1a;color:#fff;text-align:center;padding:10px;font-size:12px;letter-spacing:0.5px}
+.demo-bar span{color:var(--accent-light);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">SITO DEMO — <span>F.C. Impianti Tecnologici</span> — proposta commerciale</div>
+
+<nav>
+  <div class="logo">F.C. Impianti<span>Tecnologici</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Servizi</a></li>
+    <li><a href="#">Chi siamo</a></li>
+    <li><a href="#">Preventivi</a></li>
+    <li><a href="#">Contatti</a></li>
+  </ul>
+  <a href="#contatti" class="nav-cta">Chiama ora</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+      Roma · Pronto intervento
+    </div>
+    <h1>Impianti <em>idraulici</em><br>e termici a Roma</h1>
+    <p>Installazione, manutenzione e riparazione di impianti idraulici, riscaldamento e condizionamento. Interventi rapidi in tutta Roma e provincia.</p>
+    <div class="hero-btns">
+      <a href="#contatti" class="btn-primary">Richiedi preventivo gratis</a>
+      <a href="tel:0688125230" class="btn-outline">06 8812 523</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Anni di esperienza</div>
+      </div>
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Clienti serviti</div>
+      </div>
+      <div>
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Tempi di risposta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <strong>Emergenza idraulica?</strong> Chiamaci subito: <strong>06 8812 523</strong> — interveniamo entro poche ore
+</div>
+
+<div class="section">
+  <div class="section-label">I nostri servizi</div>
+  <div class="section-title">Tutto quello<br>che ti serve</div>
+  <p class="section-sub">Dall'installazione alla manutenzione, copriamo ogni esigenza impiantistica per privati e aziende a Roma.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <h3>Impianti idraulici</h3>
+      <p>Installazione e riparazione di impianti idrosanitari, perdite, rubinetti, sifoni e scarichi.</p>
+      <span class="service-more">Scopri →</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      </div>
+      <h3>Riscaldamento</h3>
+      <p>Installazione e manutenzione caldaie, termosifoni, pannelli radianti e bollino blu.</p>
+      <span class="service-more">Scopri →</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="10" rx="2"/><path d="M7 21h10M12 13v8"/></svg>
+      </div>
+      <h3>Condizionamento</h3>
+      <p>Installazione climatizzatori monosplit e multisplit, pompe di calore e sistemi VRF.</p>
+      <span class="service-more">Scopri →</span>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22V12M12 12C12 7 8 4 4 4M12 12c0-5 4-8 8-8"/><path d="M4 4c2 4 5 6 8 8M20 4c-2 4-5 6-8 8"/></svg>
+      </div>
+      <h3>Pronto intervento</h3>
+      <p>Perdite, rotture e guasti urgenti: interveniamo rapidamente in tutta Roma.</p>
+      <span class="service-more">Scopri →</span>
+    </div>
+  </div>
+</div>
+
+<div class="why">
+  <div class="why-inner">
+    <div class="section-label">Perché sceglierci</div>
+    <div class="section-title">Professionisti<br>di fiducia</div>
+    <div class="why-grid">
+      <div class="why-item">
+        <h4>Esperienza certificata</h4>
+        <p>Tecnici qualificati con certificazioni F-GAS e abilitazioni per tutti i tipi di impianto.</p>
+      </div>
+      <div class="why-item">
+        <h4>Preventivo trasparente</h4>
+        <p>Nessuna sorpresa: ricevi il preventivo dettagliato prima di autorizzare qualsiasi lavoro.</p>
+      </div>
+      <div class="why-item">
+        <h4>Copertura totale Roma</h4>
+        <p>Serviamo tutti i quartieri di Roma e provincia, privati e condomini.</p>
+      </div>
+      <div class="why-item">
+        <h4>Garanzia sui lavori</h4>
+        <p>Tutti gli interventi sono garantiti. Usiamo solo materiali di prima qualità.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-section" id="contatti">
+  <div class="contact-inner">
+    <div class="section-label">Contattaci</div>
+    <div class="section-title">Richiedi un preventivo<br>gratuito</div>
+    <p class="section-sub">Compilare il modulo o chiamaci direttamente. Risponderemo entro poche ore.</p>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nome e cognome</label>
+        <input type="text" placeholder="Mario Rossi">
+      </div>
+      <div class="form-group">
+        <label>Telefono</label>
+        <input type="tel" placeholder="333 123 4567">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="mario@email.com">
+      </div>
+      <div class="form-group">
+        <label>Tipo di intervento</label>
+        <select>
+          <option value="">Seleziona...</option>
+          <option>Impianto idraulico</option>
+          <option>Caldaia / riscaldamento</option>
+          <option>Condizionamento</option>
+          <option>Pronto intervento</option>
+          <option>Altro</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Descrivi il problema</label>
+        <textarea placeholder="Descrivi brevemente il lavoro da fare..."></textarea>
+      </div>
+    </div>
+    <button class="form-submit">Invia richiesta</button>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.22 2.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <div><strong>Telefono</strong>06 8812 523 / 06 8852 9777</div>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div><strong>Sede</strong>Via Rapagnano 56, 00138 Roma</div>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div><strong>Orari</strong>Lun–Ven 8:00–18:00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>F.C. Impianti Tecnologici di Ciccone Francesco Srl</strong> · P.IVA 05617091003 · Via Rapagnano 56, Roma · 06 8812 523<br>
+  <span style="font-size:11px;margin-top:6px;display:block">© 2026 F.C. Impianti Tecnologici · Privacy Policy · Cookie Policy</span>
+</footer>
+
+</body>
+</html>
